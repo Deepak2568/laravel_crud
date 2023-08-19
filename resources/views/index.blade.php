@@ -34,12 +34,13 @@
                     <td>{{$student->course.' '.$student->major}}</td>
                     <td>{{$student->phone}}</td>
                     <td>{{$student->address}}</td>
-                    <td><button class="btn btn-primary"><i class='fa fa-eye'></i> Show</button></td>
-                    <td><button class="btn btn-success"><i class='fa fa-edit'></i> Edit</button></td>
-                    <td><button class="btn btn-danger"><i class='fa fa-trash'></i> Delete</button></td>
+                    <td><a class="btn btn-primary"><i class='fa fa-eye'></i> Show</a></td>
+                    <td><a class="btn btn-success"><i class='fa fa-edit'></i> Edit</a></td>
+                    <td><a class="btn btn-danger"><i class='fa fa-trash'></i> Delete</a></td>
                 </tr>
                 @endforeach
             </table>
+            {{-- {{$students->links()}} --}}
         </div>
     </div>
 </div>
