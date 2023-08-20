@@ -34,8 +34,8 @@
                     <td>{{$student->course.' '.$student->major}}</td>
                     <td>{{$student->phone}}</td>
                     <td>{{$student->address}}</td>
-                    <td><a class="btn btn-primary"><i class='fa fa-eye'></i> Show</a></td>
-                    <td><a class="btn btn-success"><i class='fa fa-edit'></i> Edit</a></td>
+                    <td><a href="{{route('student.show',$student->id)}}" class="btn btn-primary"><i class='fa fa-eye'></i> Show</a></td>
+                    <td><a href="{{route('student.edit',$student->id)}}" class="btn btn-success"><i class='fa fa-edit'></i> Edit</a></td>
                     <td><a class="btn btn-danger"><i class='fa fa-trash'></i> Delete</a></td>
                 </tr>
                 @endforeach

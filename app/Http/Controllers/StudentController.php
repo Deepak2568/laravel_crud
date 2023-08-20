@@ -53,7 +53,9 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $students = Student::find($id);
+        // dd($students);
+        return view('show',compact('students'));
     }
 
     /**
@@ -62,6 +64,9 @@ class StudentController extends Controller
     public function edit(string $id)
     {
         //
+        $students = Student::find($id);
+        // dd($students);
+        return view('edit',compact('students'));
     }
 
     /**
@@ -70,6 +75,21 @@ class StudentController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            "firstname" => 'required',
+            "lastname" => 'required',
+            "dob" => 'required',
+            "email" => 'required|unique:students,email,'.$request->id.'|email',
+            "course" => 'required',
+            "major" => 'required',
+            "phone" => 'required',
+            "address" => 'required'
+        ]);
+
+        $data = $request->all();
+        $students = Student::find($id);
+        $students->update($data);
+        return redirect()->route('student.index')->withMessage('Student details updated successfully');
     }
 
     /**

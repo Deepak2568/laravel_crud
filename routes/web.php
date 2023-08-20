@@ -20,3 +20,6 @@ use App\Http\Controllers\StudentController;
 Route::get("/",[StudentController::class,'index'])->name('student.index');
 Route::get("/student",[StudentController::class,'create'])->name('student.create');
 Route::post("/student/save",[StudentController::class,'store'])->name('student.store');
+Route::get("/student/{id}",[StudentController::class,'show'])->name('student.show');
+Route::get("/student/{id}/edit",[StudentController::class,'edit'])->name('student.edit');
+Route::put("/student/{id}",[StudentController::class,'update'])->name('student.update');
