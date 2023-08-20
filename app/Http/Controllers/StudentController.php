@@ -92,11 +92,46 @@ class StudentController extends Controller
         return redirect()->route('student.index')->withMessage('Student details updated successfully');
     }
 
+    // User for resource router
+    // public function update(Request $request, Student $student)
+    // {
+    //     //
+    //     $request->validate([
+    //         "firstname" => 'required',
+    //         "lastname" => 'required',
+    //         "dob" => 'required',
+    //         "email" => 'required|unique:students,email,'.$student->id.'|email',
+    //         "course" => 'required',
+    //         "major" => 'required',
+    //         "phone" => 'required',
+    //         "address" => 'required'
+    //     ]);
+
+    //     $data = $request->all();
+    //     // $students = Student::find($id);
+    //     $student->update($data);
+    //     return redirect()->route('student.index')->withMessage('Student details updated successfully');
+    // }
+
+
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
         //
+        $students = Student::find($id);
+        $students->delete();
+        return redirect()->route('student.index')->withMessage('Student detail deleted successfully');
     }
+
+    // User for resource router
+    // public function destroy(Student $student)
+    // {
+    //     //
+    //     // $students = Student::find($id);
+    //     $student->delete();
+    //     return redirect()->route('student.index')->withMessage('Student detail deleted successfully');
+    // }
 }

@@ -36,7 +36,11 @@
                     <td>{{$student->address}}</td>
                     <td><a href="{{route('student.show',$student->id)}}" class="btn btn-primary"><i class='fa fa-eye'></i> Show</a></td>
                     <td><a href="{{route('student.edit',$student->id)}}" class="btn btn-success"><i class='fa fa-edit'></i> Edit</a></td>
-                    <td><a class="btn btn-danger"><i class='fa fa-trash'></i> Delete</a></td>
+                    <form action="{{route('student.destroy',$student->id)}}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <td><button class="btn btn-danger"><i class='fa fa-trash'></i> Delete</button></td>
+                    </form>
                 </tr>
                 @endforeach
             </table>

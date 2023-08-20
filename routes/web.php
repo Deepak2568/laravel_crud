@@ -23,3 +23,7 @@ Route::post("/student/save",[StudentController::class,'store'])->name('student.s
 Route::get("/student/{id}",[StudentController::class,'show'])->name('student.show');
 Route::get("/student/{id}/edit",[StudentController::class,'edit'])->name('student.edit');
 Route::put("/student/{id}",[StudentController::class,'update'])->name('student.update');
+Route::delete("/student/{id}",[StudentController::class,'destroy'])->name('student.destroy');
+
+// resource routes
+// Route::resource('/student',StudentController::class);
